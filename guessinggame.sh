@@ -3,7 +3,7 @@
 function guess {
 	ans=$(ls -l | wc -l)
 	let ans=ans-1
-	echo $ans 
+	# echo $ans 
 	correct=0
 	valid_reponse="^[0-9]+"
 
@@ -11,7 +11,7 @@ function guess {
 	do
 		echo "How many files are in this directory?"
 		read guess_ans
-		if [[ $guess_ans = ~$valid_reponse && $guess_ans -gt -1 && $guess_ans -lt 2147483648 ]]
+		if [[ $guess_ans =~ $valid_reponse && $guess_ans -gt -1 && $guess_ans -lt 2147483648 ]]
 		then
 			echo "You typed: $guess_ans"
 			if [[ $guess_ans -eq $ans ]]
